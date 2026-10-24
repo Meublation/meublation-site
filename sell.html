@@ -1,25 +1,677 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meublation – Sell</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-i18n="81bac9d6">Meublation – Sell</title>
+<meta content="Give your furniture a second life: register your items and sell them to other HEC Paris students." data-i18n-content="7925bf70" name="description"/>
+<meta content="#0E3B2B" name="theme-color"/>
+<meta content="Meublation – Sell" property="og:title"/>
+<meta content="Give your furniture a second life: register your items and sell them to other HEC Paris students." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="Meublation" property="og:site_name"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+/* Meublation – shared styles. Colours: dark green #0E3B2B, green #17543C, accent #9BE08C, cream #F5F1E6, mint #DCEADB. */
+:root { --dark: #0E3B2B; --nav: rgba(14, 59, 43, 0.94); }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #F5F1E6; color: #14201B; font-family: 'DM Sans', system-ui, sans-serif; }
+img { max-width: 100%; }
+body { margin: 0; }
+html { scroll-behavior: smooth; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid #2E8B57; outline-offset: 3px; }
+
+.btn { transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-ghost:hover { background: #F5F1E6; color: #0E3B2B; }
+.btn-solid:hover { background: #FFFFFF; }
+.btn-dark:hover { background: #0E3B2B; }
+.hb { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 30px; border-radius: 999px; font-size: 17px; font-weight: 500; border: 1.5px solid rgba(245, 241, 230, 0.7); color: #F5F1E6; }
+.hb-on { background: #9BE08C; color: #0E3B2B; border-color: #9BE08C; font-weight: 700; }
+.nl { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; font-size: 15px; color: #F5F1E6; transition: background 0.2s ease; }
+.nl:hover { background: rgba(245, 241, 230, 0.14); }
+.nl-on { font-weight: 700; color: #9BE08C; }
+.soc { width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid rgba(245, 241, 230, 0.4); display: flex; align-items: center; justify-content: center; color: #F5F1E6; transition: background 0.2s ease, color 0.2s ease; }
+.soc:hover { background: #F5F1E6; color: #0E3B2B; }
+.fh { margin: 0 0 4px; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #9BE08C; }
+.fl { font-size: 17px; color: #F5F1E6; }
+.fl:hover { text-decoration: underline; }
+.card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(14, 59, 43, 0.14); }
+
+.sec { position: relative; box-sizing: border-box; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: clamp(72px, 9vw, 120px) clamp(20px, 5vw, 64px) clamp(104px, 10vw, 148px); }
+.wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
+.eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.h2 { margin: 0; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; letter-spacing: -0.03em; }
+.h3 { margin: 0; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; }
+.bar { width: 72px; height: 5px; border-radius: 3px; }
+.txt { margin: 0; font-size: 17px; line-height: 1.6; }
+.lead { margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; }
+.cardb { box-sizing: border-box; padding: 32px; border-radius: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.ico { flex: none; width: 56px; height: 56px; border-radius: 50%; background: #17543C; color: #F5F1E6; display: flex; align-items: center; justify-content: center; }
+.stepc { flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 28px; border-radius: 20px; background: rgba(245, 241, 230, 0.08); border: 1px solid rgba(245, 241, 230, 0.2); display: flex; flex-direction: column; gap: 12px; }
+.stepn { font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -0.03em; color: #9BE08C; }
+.pill { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #FFFFFF; border: 1px solid #CFE0CE; font-size: 17px; font-weight: 500; color: #0E3B2B; }
+.tile { flex: 1 1 240px; min-width: 0; aspect-ratio: 4 / 3; box-sizing: border-box; border-radius: 20px; background: #F5F1E6; display: flex; align-items: center; justify-content: center; color: #2E7D55; }
+.cd { flex: 1 1 0; min-width: 0; box-sizing: border-box; padding: 22px 8px; border-radius: 18px; background: rgba(245, 241, 230, 0.1); text-align: center; }
+.cdn { font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: -0.03em; color: #9BE08C; }
+.cdl { margin-top: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245, 241, 230, 0.8); }
+.next { position: absolute; left: 50%; bottom: 28px; margin-left: -24px; width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, color 0.2s ease; }
+.next-dark { color: #17543C; }
+.next-dark:hover { background: #17543C; color: #F5F1E6; }
+.next-light { color: #F5F1E6; }
+.next-light:hover { background: #F5F1E6; color: #0E3B2B; }
+
+@keyframes introIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(64px); } to { opacity: 1; transform: none; } }
+@keyframes pop { from { opacity: 0; transform: translateY(32px) scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@keyframes barin { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: none; } }
+
+.intro { animation: introIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.intro-2 { animation-delay: 0.15s; }
+.intro-3 { animation-delay: 0.3s; }
+.intro-4 { animation-delay: 0.6s; }
+.cue { animation: bob 1.8s ease-in-out infinite; }
+.rule { transform-origin: left center; }
+
+@supports (animation-timeline: view()) {
+  .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
+  .pop { animation: pop linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+  .rule { animation: grow linear both; animation-timeline: view(); animation-range: entry 10% entry 70%; }
+  .d2 { animation-range: entry 8% entry 63%; }
+  .d3 { animation-range: entry 16% entry 71%; }
+  .d4 { animation-range: entry 24% entry 79%; }
+  .d5 { animation-range: entry 30% entry 85%; }
+  .topbar { animation: barin linear both; animation-timeline: scroll(root); animation-range: 480px 640px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .intro, .reveal, .pop, .rule, .cue, .topbar { animation: none !important; }
+}
+.row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; padding: 28px 0; border-top: 1px solid #CBD6C8; }
+.year { flex: 0 0 150px; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 56px); line-height: 1; letter-spacing: -0.03em; color: #17543C; }
+.big { font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(64px, 9vw, 120px); line-height: 1; letter-spacing: -0.04em; }
+.avatar { flex: none; width: 72px; height: 72px; border-radius: 50%; background: #17543C; color: #F5F1E6; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 26px; }
+.navlink { transition: background 0.2s ease; }
+.navlink:hover { background: rgba(245, 241, 230, 0.14); }
+.flink:hover { text-decoration: underline; }
+body.p-about .ico { flex: none; width: 76px; height: 76px; border-radius: 50%; background: #17543C; color: #F5F1E6; display: flex; align-items: center; justify-content: center; }
+body.p-about .pill { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; background: #FFFFFF; border: 1px solid #CFE0CE; font-size: 16px; color: #0E3B2B; }
+
+/* ---- Page-specific variants ---- */
+body.p-store .stepc { flex-basis: 200px; }
+body.p-buy .tile { background: #F5F1E6; }
+
+/* ---- Language switch (two flags) ---- */
+.langs { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.lang { width: 44px; height: 44px; box-sizing: border-box; padding: 5px; border-radius: 50%; border: 2px solid transparent; background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: border-color 0.2s ease, transform 0.2s ease; }
+.lang:hover { transform: scale(1.08); }
+.lang[aria-pressed="true"] { border-color: #9BE08C; }
+.lang:focus-visible { outline: 3px solid #9BE08C; outline-offset: 2px; }
+.lang svg { display: block; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; }
+.topbar .langs { margin-left: 4px; }
+@media (max-width: 640px) { .brand-txt { display: none; } .topbar { gap: 8px; } }
+
+/* ---- Google Forms ---- */
+.gform { display: block; width: 100%; height: var(--gh, 1600px); border: 0; }
+@media (max-width: 640px) { .gform { height: var(--gh-m, 2000px); } }
+@media (min-width: 960px) { .side-card { position: sticky; top: 88px; align-self: flex-start; } }
+
+</style>
 </head>
-<body>
-  <header>
-    <h1>Meublation</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="store.html">Store</a>
-      <a href="sell.html">Sell</a>
-      <a href="buy.html">Buy</a>
-      <a href="about.html">About Us</a>
-    </nav>
-  </header>
-  <main>
-    <h2>Sell</h2>
-    <p>Site under construction. This is a placeholder page.</p>
-  </main>
+<body class="p-sell">
+<div id="top" style="font-family: 'DM Sans', system-ui, sans-serif; color: #14201B; background: #F5F1E6;">
+<nav aria-label="Main menu" class="topbar" data-i18n-aria="4d7a3b1c" style="position: sticky; top: 0; z-index: 30; height: 64px; margin-bottom: -64px; box-sizing: border-box; display: flex; align-items: center; gap: 16px; padding: 0 clamp(16px, 4vw, 48px); background: var(--nav); color: #F5F1E6;">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; flex: none; min-height: 44px; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; color: #F5F1E6;">
+<svg aria-hidden="true" height="28" style="color: var(--dark);" viewBox="0 0 48 48" width="28"><path d="M8 42C5 24 17 8 43 5C46 31 30 46 8 42z" fill="#9BE08C"></path><path d="M9.5 41.5C18 31 27 21 37.5 12C29 25 20 34 9.5 41.5z" fill="currentColor"></path><path d="M8.5 41.5L3.5 46.5" fill="none" stroke="#9BE08C" stroke-linecap="round" stroke-width="2.6"></path></svg>
+<span class="brand-txt">Meublation</span>
+</a>
+<div style="display: flex; gap: 4px; margin-left: auto; overflow-x: auto; min-width: 0; white-space: nowrap;">
+<a class="nl" data-i18n="8cf04a97" href="index.html">Home</a>
+<a class="nl" data-i18n="fdb0c388" href="store.html">Store</a>
+<a class="nl nl-on" data-i18n="3068c5a9" href="sell.html">Sell</a>
+<a class="nl" data-i18n="831a28f1" href="buy.html">Buy</a>
+<a class="nl" data-i18n="9e66e6bd" href="about.html">About Us</a>
+</div>
+<div aria-label="Language" class="langs" data-i18n-aria="4994a8ff" role="group"><button aria-label="English" aria-pressed="true" class="lang" data-lang="en" title="English" type="button"><svg aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 60 30"><rect fill="#012169" height="30" width="60"></rect><path d="M0 0L60 30M60 0L0 30" stroke="#FFFFFF" stroke-width="6"></path><path d="M0 0L60 30M60 0L0 30" stroke="#C8102E" stroke-width="2"></path><path d="M30 0V30M0 15H60" stroke="#FFFFFF" stroke-width="10"></path><path d="M30 0V30M0 15H60" stroke="#C8102E" stroke-width="6"></path></svg></button><button aria-label="Français" aria-pressed="false" class="lang" data-lang="fr" title="Français" type="button"><svg aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 3 2"><rect fill="#0055A4" height="2" width="1"></rect><rect fill="#FFFFFF" height="2" width="1" x="1"></rect><rect fill="#EF4135" height="2" width="1" x="2"></rect></svg></button></div>
+</nav>
+<!-- 1. Header -->
+<header style="position: relative; overflow: hidden; min-height: 100vh; min-height: 100svh; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(24px, 3.5vw, 36px); padding: 104px clamp(20px, 5vw, 64px) 120px; text-align: center; background: var(--dark); color: #F5F1E6;">
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; border-radius: 50%; border: 1px solid rgba(245, 241, 230, 0.10); transform: translate(-50%, -50%);"></div>
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 960px; height: 960px; border-radius: 50%; border: 1px solid rgba(245, 241, 230, 0.08); transform: translate(-50%, -50%);"></div>
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 1400px; height: 1400px; border-radius: 50%; border: 1px solid rgba(245, 241, 230, 0.06); transform: translate(-50%, -50%);"></div>
+<a class="intro" href="index.html" style="position: relative; display: flex; align-items: center; gap: 12px; min-height: 44px; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.03em; color: #F5F1E6;">
+<svg aria-hidden="true" height="44" style="color: var(--dark);" viewBox="0 0 48 48" width="44"><path d="M8 42C5 24 17 8 43 5C46 31 30 46 8 42z" fill="#9BE08C"></path><path d="M9.5 41.5C18 31 27 21 37.5 12C29 25 20 34 9.5 41.5z" fill="currentColor"></path><path d="M8.5 41.5L3.5 46.5" fill="none" stroke="#9BE08C" stroke-linecap="round" stroke-width="2.6"></path></svg>
+      Meublation
+    </a>
+<h1 class="intro intro-2" data-i18n="3068c5a9" style="position: relative; margin: 0; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(64px, 12vw, 136px); line-height: 1; letter-spacing: -0.04em;">Sell</h1>
+<p class="intro intro-2" data-i18n="e4bd8caf" style="position: relative; margin: 0; max-width: 620px; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.4; color: rgba(245, 241, 230, 0.82);">Give your furniture a second life, and get paid when it sells.</p>
+<nav aria-label="Sections" class="intro intro-3" data-i18n-aria="855c3eca" style="position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 760px;">
+<a class="btn btn-ghost hb" data-i18n="8cf04a97" href="index.html">Home</a>
+<a class="btn btn-ghost hb" data-i18n="fdb0c388" href="store.html">Store</a>
+<a class="btn btn-solid hb hb-on" data-i18n="3068c5a9" href="sell.html">Sell</a>
+<a class="btn btn-ghost hb" data-i18n="831a28f1" href="buy.html">Buy</a>
+<a class="btn btn-ghost hb" data-i18n="9e66e6bd" href="about.html">About Us</a>
+</nav>
+<div class="intro intro-3" style="position: relative;"><div aria-label="Language" class="langs" data-i18n-aria="4994a8ff" role="group"><button aria-label="English" aria-pressed="true" class="lang" data-lang="en" title="English" type="button"><svg aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 60 30"><rect fill="#012169" height="30" width="60"></rect><path d="M0 0L60 30M60 0L0 30" stroke="#FFFFFF" stroke-width="6"></path><path d="M0 0L60 30M60 0L0 30" stroke="#C8102E" stroke-width="2"></path><path d="M30 0V30M0 15H60" stroke="#FFFFFF" stroke-width="10"></path><path d="M30 0V30M0 15H60" stroke="#C8102E" stroke-width="6"></path></svg></button><button aria-label="Français" aria-pressed="false" class="lang" data-lang="fr" title="Français" type="button"><svg aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 3 2"><rect fill="#0055A4" height="2" width="1"></rect><rect fill="#FFFFFF" height="2" width="1" x="1"></rect><rect fill="#EF4135" height="2" width="1" x="2"></rect></svg></button></div></div>
+<a aria-label="Scroll down" class="next next-light intro intro-4" data-i18n-aria="b7d001ca" href="#register"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
+</header>
+<!-- 2. Register (form at the top of the page) -->
+<section class="sec" id="register" style="background: #DCEADB;">
+<div class="wrap" style="display: flex; flex-direction: column; align-items: center; gap: clamp(24px, 3.5vw, 36px);">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 760px; text-align: center;">
+<h2 class="h2 reveal" data-i18n="b7cfd36f" style="color: #0E3B2B;">Ready to sell?</h2>
+<div class="bar rule" style="background: #2E8B57;"></div>
+<p class="lead reveal d2" data-i18n="57ce7095" style="color: #3F4B45;">Fill in this form to sell your stuff.</p>
+</div>
+<div class="pop d2" role="note" style="width: 100%; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; padding: 24px 28px; border-radius: 24px; background: #FFF1C2; border: 2px solid #E0A800; color: #3B2E00;">
+<div style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #E0A800; color: #3B2E00; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" fill="none" height="30" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="30"><path d="M12 3.5l9.5 16.5h-19z"></path><path d="M12 10v4.5M12 17.4v.1"></path></svg></div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px;">
+<div class="eyebrow" data-i18n="bf49a2af" style="color: #7A5A00;">Before you start</div>
+<p class="txt" data-i18n="2879633f" style="font-size: 19px; font-weight: 700; color: #3B2E00;">Fill in one form for each item.</p>
+<p class="txt" data-i18n="2e1e5480" style="font-size: 19px; font-weight: 700; color: #3B2E00;">You need a verified Revolut account to sell stuff.</p>
+</div>
+</div>
+<div style="width: 100%; display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch;">
+<div class="gform-box pop d2" style="flex: 2 1 520px; min-width: 0; box-sizing: border-box; border-radius: 28px; overflow: hidden; background: #FFFFFF; border: 1px solid #B9D3BC;">
+<iframe class="gform" data-i18n-title="frm-sell" loading="lazy" src="https://docs.google.com/forms/d/e/1FAIpQLScICO3y_b9OPOqsg2PEiifuqKRkhJ1GwP3s7etFbOqVrq-L7g/viewform?embedded=true" style="--gh: 800px; --gh-m: 900px;" title="Sell form">Loading…</iframe>
+</div>
+</div>
+<p class="txt" data-i18n="5150d8a9" style="color: #3F4B45; text-align: center;">If the form does not load, <a href="https://docs.google.com/forms/d/e/1FAIpQLScICO3y_b9OPOqsg2PEiifuqKRkhJ1GwP3s7etFbOqVrq-L7g/viewform" rel="noopener" style="font-weight: 700; color: #17543C; text-decoration: underline;" target="_blank">open it in a new tab</a>.</p>
+<a class="btn btn-dark" href="#items" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 12px 30px; border-radius: 999px; background: #17543C; color: #F5F1E6; font-size: 17px; font-weight: 700; text-align: center;"><span data-i18n="fa5a8550">Read everything you need to know before selling</span><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex: none;" viewBox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg></a>
+</div>
+</section>
+<!-- 3. Items -->
+<section class="sec" id="items" style="background: #F5F1E6;">
+<div class="wrap" style="display: flex; flex-direction: column; gap: clamp(32px, 4vw, 52px);">
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
+<div class="eyebrow reveal" data-i18n="9dea4016" style="color: #17543C;">Items</div>
+<h2 class="h2 reveal d2" data-i18n="23e5370b" style="color: #0E3B2B;">What you can sell</h2>
+<div class="bar rule" style="background: #2E8B57;"></div>
+<p class="lead reveal d3" data-i18n="7ab75815" style="color: #3F4B45;">Bring the things other students need to furnish their room. Meublation is counting on you to please the next generation.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<div class="cardb card pop" style="flex: 1 1 240px; background: #FFFFFF; flex-direction: row; align-items: center; gap: 18px; padding: 24px;">
+<div class="ico"><svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="28"><path d="M4 10h16M6 10v9M18 10v9M8 10V6h8v4"></path></svg></div>
+<h3 class="h3" data-i18n="8c4cb78e" style="font-size: 22px; color: #0E3B2B;">Chairs, sofas and tables</h3>
+</div>
+<div class="cardb card pop d2" style="flex: 1 1 240px; background: #FFFFFF; flex-direction: row; align-items: center; gap: 18px; padding: 24px;">
+<div class="ico"><svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="28"><rect height="12" rx="2" width="18" x="3" y="5"></rect><path d="M8 21h8M12 17v4"></path></svg></div>
+<h3 class="h3" data-i18n="c264d7df" style="font-size: 22px; color: #0E3B2B;">Electronic devices</h3>
+</div>
+<div class="cardb card pop d3" style="flex: 1 1 240px; background: #FFFFFF; flex-direction: row; align-items: center; gap: 18px; padding: 24px;">
+<div class="ico"><svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="28"><path d="M7 3v8a2 2 0 0 0 2 2v8M5 3v5M9 3v5M17 3c-2 1-3 4-3 7h3v11"></path></svg></div>
+<h3 class="h3" data-i18n="9262f223" style="font-size: 22px; color: #0E3B2B;">Tools and utensils</h3>
+</div>
+<div class="cardb card pop d4" style="flex: 1 1 240px; background: #FFFFFF; flex-direction: row; align-items: center; gap: 18px; padding: 24px;">
+<div class="ico"><svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="28"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"></path><path d="M4 8l8 4 8-4M12 12v8"></path></svg></div>
+<h3 class="h3" data-i18n="387baf01" style="font-size: 22px; color: #0E3B2B;">Miscellaneous</h3>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+<div class="cardb pop" style="flex: 1 1 420px; background: #0E3B2B; color: #F5F1E6;">
+<h3 class="h3" data-i18n="cd1dfca6">Not accepted</h3>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.55; color: rgba(245, 241, 230, 0.9);">
+<li data-i18n="2c3dbc02">Broken items</li>
+<li data-i18n="99ca06ef">Perishable food</li>
+<li data-i18n="925c8aa2">Dangerous items</li>
+<li data-i18n="786bd178">Fridges and freezers: the HEC residence service now installs one in every room. If you already bought one, contact that service.</li>
+</ul>
+</div>
+<div class="cardb pop d2" style="flex: 1 1 320px; background: #FFFFFF;">
+<h3 class="h3" data-i18n="7dadd2a4" style="color: #0E3B2B;">Good to know</h3>
+<p class="txt" data-i18n="0031741a" style="color: #3F4B45;">Meublation can refuse any item that does not seem suitable.</p>
+</div>
+</div>
+</div>
+<a aria-label="Next section" class="next next-dark" data-i18n-aria="68d37fc0" href="#steps"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
+</section>
+<!-- 3. Steps -->
+<section class="sec" id="steps" style="background: #17543C; color: #F5F1E6;">
+<div class="wrap" style="display: flex; flex-direction: column; gap: clamp(36px, 5vw, 64px);">
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
+<div class="eyebrow reveal" data-i18n="9ffdb952" style="color: #9BE08C;">How it works</div>
+<h2 class="h2 reveal d2" data-i18n="2b5c2ec1">Selling in six steps</h2>
+<div class="bar rule" style="background: #9BE08C;"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<div class="stepc pop">
+<div class="stepn">01</div>
+<h3 class="h3" data-i18n="83ccdb01" style="font-size: 24px;">Register each item</h3>
+<p class="txt" data-i18n="7f600688" style="font-size: 16px; color: rgba(245, 241, 230, 0.86);">Fill in the online form. You need one form per item.</p>
+</div>
+<div class="stepc pop d2">
+<div class="stepn">02</div>
+<h3 class="h3" data-i18n="41b2199c" style="font-size: 24px;">Book a slot</h3>
+<p class="txt" data-i18n="99d22ac3" style="font-size: 16px; color: rgba(245, 241, 230, 0.86);">Choose a time during the Open Days to bring your items.</p>
+</div>
+<div class="stepc pop d3">
+<div class="stepn">03</div>
+<h3 class="h3" data-i18n="0b40684f" style="font-size: 24px;">Pack carefully</h3>
+<p class="txt" data-i18n="b02d7a60" style="font-size: 16px; color: rgba(245, 241, 230, 0.86);">Pack your items well, especially the small ones.</p>
+</div>
+<div class="stepc pop">
+<div class="stepn">04</div>
+<h3 class="h3" data-i18n="4c1cb829" style="font-size: 24px;">Drop them off</h3>
+<p class="txt" data-i18n="44df1436" style="font-size: 16px; color: rgba(245, 241, 230, 0.86);">Leave them in the containers behind building B1, during opening hours.</p>
+</div>
+<div class="stepc pop d2">
+<div class="stepn">05</div>
+<h3 class="h3" data-i18n="e4de59a1" style="font-size: 24px;">We sell them</h3>
+<p class="txt" data-i18n="f329efd5" style="font-size: 16px; color: rgba(245, 241, 230, 0.86);">Meublation does its best to sell your items to the arriving students.</p>
+</div>
+<div class="stepc pop d3">
+<div class="stepn">06</div>
+<h3 class="h3" data-i18n="57552398" style="font-size: 24px;">Get paid</h3>
+<p class="txt" data-i18n="f1dc09af" style="font-size: 16px; color: rgba(245, 241, 230, 0.86);">After the sale, you are paid directly on your Revolut account.</p>
+</div>
+</div>
+</div>
+<a aria-label="Next section" class="next next-light" data-i18n-aria="68d37fc0" href="#payment"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
+</section>
+<!-- 4. Payment -->
+<section class="sec" id="payment" style="background: #FFFFFF;">
+<div class="wrap" style="display: flex; flex-direction: column; gap: clamp(32px, 4vw, 52px);">
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
+<div class="eyebrow reveal" data-i18n="c453a4b8" style="color: #17543C;">Payment</div>
+<h2 class="h2 reveal d2" data-i18n="fac22560" style="color: #0E3B2B;">How you get paid</h2>
+<div class="bar rule" style="background: #2E8B57;"></div>
+</div>
+<div class="cardb pop" style="background: #17543C; color: #F5F1E6; flex-direction: row; align-items: center; gap: 24px; padding: clamp(24px, 4vw, 40px);">
+<div class="ico" style="width: 72px; height: 72px; background: #9BE08C; color: #0E3B2B;"><svg aria-hidden="true" fill="none" height="34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="34"><rect height="9" rx="2" width="14" x="5" y="11"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 8px; min-width: 0;">
+<h3 class="h3" data-i18n="19aab514">A verified Revolut account is required</h3>
+<p class="txt" data-i18n="d6b02a3f" style="color: rgba(245, 241, 230, 0.88);">Without one, we cannot accept your item.</p>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch;">
+<div class="cardb card pop d2" style="flex: 1 1 360px; background: #F5F1E6;">
+<h3 class="h3" data-i18n="3fdddb0d" style="color: #0E3B2B;">How does the payment work?</h3>
+<p class="txt" data-i18n="285bb915" style="color: #3F4B45;">The buyer pays you directly through Revolut. Meublation keeps a 10% commission.</p>
+</div>
+<div class="cardb card pop d3" style="flex: 1 1 360px; background: #F5F1E6;">
+<h3 class="h3" data-i18n="2ed28573" style="color: #0E3B2B;">How long can my item stay for sale?</h3>
+<p class="txt" data-i18n="d0c3c59b" style="color: #3F4B45;">There is no deadline. After one year, Meublation may lower the price of an unsold item. After two years, it can be given to a partner NGO or sold off at a very low price.</p>
+</div>
+</div>
+</div>
+<a aria-label="Next section" class="next next-dark" data-i18n-aria="68d37fc0" href="#examples"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
+</section>
+<!-- 5. Examples -->
+<section class="sec" id="examples" style="background: #F5F1E6;">
+<div class="wrap" style="display: flex; flex-direction: column; gap: clamp(28px, 4vw, 48px);">
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
+<div class="eyebrow reveal" data-i18n="ff7c0fcd" style="color: #17543C;">Examples</div>
+<h2 class="h2 reveal d2" data-i18n="a4704c18" style="color: #0E3B2B;">Items that find a new home</h2>
+<div class="bar rule" style="background: #2E8B57;"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<div class="tile pop"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+<div class="tile pop d2"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+<div class="tile pop d3"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+<div class="tile pop d4"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+<div class="tile pop"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+<div class="tile pop d2"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+<div class="tile pop d3"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+<div class="tile pop d4"><svg aria-hidden="true" fill="none" height="40" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="40"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M3 17l5-4 4 3 3-2 6 4"></path></svg></div>
+</div>
+<!-- TODO photos: replace the frames above with <img> tags (assets/img/example-1.jpg ...) -->
+<p class="txt reveal" data-i18n="69c19be0" style="text-align: center; color: #3F4B45;">Photos coming soon</p>
+</div>
+<a aria-label="Go to footer" class="next next-dark" data-i18n-aria="af2ec056" href="#contact"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
+</section>
+<!-- 6. Footer -->
+<footer id="contact" style="min-height: 520px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 56px; padding: clamp(64px, 8vw, 96px) clamp(20px, 5vw, 64px) 32px; background: var(--dark); color: #F5F1E6;">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 48px;">
+<div class="reveal" style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; align-items: center; gap: 12px; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.03em;">
+<svg aria-hidden="true" height="44" style="color: var(--dark);" viewBox="0 0 48 48" width="44"><path d="M8 42C5 24 17 8 43 5C46 31 30 46 8 42z" fill="#9BE08C"></path><path d="M9.5 41.5C18 31 27 21 37.5 12C29 25 20 34 9.5 41.5z" fill="currentColor"></path><path d="M8.5 41.5L3.5 46.5" fill="none" stroke="#9BE08C" stroke-linecap="round" stroke-width="2.6"></path></svg>
+          Meublation
+        </div>
+<p data-i18n="d348bb09" style="margin: 0; max-width: 300px; font-size: 16px; line-height: 1.55; color: rgba(245, 241, 230, 0.78);">The student-driven sustainable platform of HEC Paris</p>
+</div>
+<div class="reveal d2" style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+<h3 class="fh" data-i18n="a10a9bcd">Legal</h3>
+<a class="fl" data-i18n="1d8cd2bf" href="terms.html">Terms &amp; Conditions</a>
+<a class="fl" data-i18n="fa2ead69" href="privacy.html">Privacy Policy</a>
+</div>
+<div class="reveal d3" style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+<h3 class="fh" data-i18n="9cfc9b74">Contact Us</h3>
+<p data-i18n="69487521" style="margin: 0; font-size: 17px; line-height: 1.55; color: #F5F1E6;">Find us on campus at the containers near the <strong>B1 building</strong></p>
+<p data-i18n="bf4ed66a" style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(245, 241, 230, 0.86);">1 Rue de la Libération<br/>78351 Jouy-en-Josas</p>
+<a class="fl" href="mailto:association.meublation@hec.edu">association.meublation@hec.edu</a>
+</div>
+<div class="reveal d4" style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+<h3 class="fh" data-i18n="57b76fc6">Social media</h3>
+<div style="display: flex; gap: 12px;">
+<a aria-label="Facebook" class="soc" href="https://www.facebook.com/profile.php?id=100080133940672"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><path d="M14 8h2.5V4.5H14a3.5 3.5 0 0 0-3.5 3.5v2.5H8V14h2.5v6H14v-6h2.5l.5-3.5h-3V8z"></path></svg></a>
+<a aria-label="LinkedIn" class="soc" href="http://linkedin.com/company/meublation"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><path d="M6 10v8M6 6.5v.5M10 18v-8M10 13.5a3.5 3.5 0 0 1 7 0V18"></path></svg></a>
+<a aria-label="Instagram" class="soc" href="https://www.instagram.com/meublation/"><svg aria-hidden="true" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><rect height="16" rx="4.5" width="16" x="4" y="4"></rect><circle cx="12" cy="12" r="3.6"></circle><path d="M16.8 7.2v.1"></path></svg></a>
+</div>
+</div>
+</div>
+<div class="wrap" style="box-sizing: border-box; padding-top: 24px; border-top: 1px solid rgba(245, 241, 230, 0.2); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+<div data-i18n="0321b263" style="font-size: 15px; color: rgba(245, 241, 230, 0.78);">© 2026 Meublation. All Rights Reserved.</div>
+<a class="fl" href="#top" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px;"><span data-i18n="7c491b68">Back to top</span><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="18"><path d="M6 15l6-6 6 6"></path></svg>
+</a>
+</div>
+</footer>
+</div>
+<script>
+/* French translations. Each line: "id": "French text", // original English text.
+   The id is the value of the data-i18n attribute in the HTML. To fix a French text, edit the line here. */
+window.MEUBLATION_FR = {
+  "frm-sell": "Formulaire de vente (en anglais)",
+  "80f1dd5f": "Meublation – Accueil", // Meublation – Home
+  "cb1694eb": "Meublation est la plateforme étudiante de HEC Paris pour acheter, vendre et stocker des meubles d'occasion sur le campus.", // Meublation is the student-run platform of HEC Paris to buy, sell and store second-hand furniture on campus.
+  "4d7a3b1c": "Menu principal", // Main menu
+  "8cf04a97": "Accueil", // Home
+  "fdb0c388": "Stockage", // Store
+  "3068c5a9": "Vendre", // Sell
+  "831a28f1": "Acheter", // Buy
+  "9e66e6bd": "Qui sommes-nous", // About Us
+  "4994a8ff": "Langue", // Language
+  "d348bb09": "La plateforme étudiante et durable de HEC Paris", // The student-driven sustainable platform of HEC Paris
+  "855c3eca": "Rubriques", // Sections
+  "b7d001ca": "Faire défiler vers le bas", // Scroll down
+  "7c975014": "Depuis 2019", // Since 2019
+  "7f1c1bc7": "La façon abordable et durable de meubler votre chambre à HEC", // The affordable and sustainable way to furnish your HEC room
+  "13617f20": "Meublation est une plateforme gérée par des étudiants, qui permet aux étudiants de HEC Paris d'acheter, de vendre, de stocker et de donner des meubles. Notre objectif est de réduire les déchets de mobilier sur le campus en veillant à ce que chaque meuble soit réutilisé.", // Meublation is a student-run platform that enables HEC Paris students to buy, sell, store and donate furniture.
+  "f549bf99": "Meublation a été fondée en 2019 et fait aujourd'hui partie d'Esp'R, l'association écologique du campus.", // Meublation was founded in 2019 and is now part of Espr, the ecological association of the campus.
+  "bf137298": "En savoir plus sur nous", // Learn more about us
+  "eee245ae": "Photo à venir", // Photo coming soon
+  "68d37fc0": "Section suivante", // Next section
+  "992a0f05": "Services", // Services
+  "d2211ca5": "Découvrez tous les services de Meublation", // Discover all services of Meublation
+  "ed3abbcd": "Meublation dispose de 2 containers remplis d'objets utilisés par d'anciens étudiants de HEC ! Vous y trouverez de tout, des <strong>bouilloires aux micro-ondes, en passant par les lampes, les étendoirs ou les tapis</strong>. Cette année, oubliez Ikea et les soucis de déménagement des gros objets, et venez voir par vous-même les centaines de meubles qui vous attendent.", // Meublation has 2 containers full of items used by former HEC students! You can find everything from <strong>ke
+  "51ce0315": "Tout est d'<strong>occasion</strong> : préparez-vous à faire de bonnes affaires.", // Everything is <strong>second hand</strong>, so be ready to make good deals.
+  "3da83408": "Venez avec un compte <strong>Revolut</strong>, car vous en aurez besoin pour payer le vendeur du meuble de vos rêves. Nous ne sommes qu'une place de marché (voyez comment fonctionne « Vendre » pour comprendre).", // Come with a <strong>Revolut</strong> account, as you will need it to pay the seller of your dream furniture. W
+  "8dfa6773": "Notre magasin ouvre pendant les <strong>« Open Days »</strong>, généralement en août, en décembre et en mai.", // Our store opens during <strong>"Open Days"</strong>, usually in August, December and May.
+  "ff0906b0": "Comment acheter", // How to buy
+  "64e267b8": "Meublation compte sur vous pour faire plaisir à la prochaine génération d'étudiants de HEC avec vos meubles d'occasion. Pas des objets qui ne fonctionnent plus, bien sûr, mais ceux que vous ne pouvez pas ramener chez vous.", // Meublation is counting on you to please the next generation of HEC students with your used furniture. Not item
+  "36980274": "Venez, nous gérons vos meubles, et vous recevrez votre argent quand l'objet sera acheté !", // Come, let us manage your furniture, and you will receive your money when the item is bought!
+  "d74ec903": "Merci de remplir le formulaire pour chaque objet que vous vendez.", // Please complete the form for each item you sell.
+  "d7faf6bc": "Vendre ici", // Sell here
+  "63eafebb": "La partie « Stockage » de Meublation est un peu différente de l'achat et de la vente. Nous avons une salle où nous gardons les affaires des étudiants actuels de HEC qui ne sont pas sur le campus.", // The "Store" part of Meublation is a bit different from Buy and Sell. We have a room where we store items of cu
+  "bdf8f997": "Si vous quittez votre chambre pour quelques mois mais comptez revenir à Paris, laissez-nous garder vos affaires. Vous pouvez stocker des valises, des cartons ou des meubles pour <strong>2 à 4 € par mois</strong>.", // If you are leaving your room for some months but plan to come back to Paris, let us keep your stuff. You can s
+  "1de5a5e5": "Merci de remplir le formulaire si vous souhaitez stocker vos affaires.", // Please fill in the form if you want to store your things.
+  "e09c0097": "Stocker vos affaires ici", // Store your belongings here
+  "20cf5065": "Pour plus de détails sur chaque rubrique, consultez les pages dédiées.", // For further details on each section, please refer to the dedicated pages.
+  "f5c7922d": "Réalisations", // Achievements
+  "7074317f": "Nos réalisations", // Our achievements
+  "cf3c8dcb": "articles actuellement dans notre magasin", // articles currently in our store
+  "319d268a": "clients de notre service de stockage", // clients of our storage service
+  "93916a81": "de réduction des déchets la première année", // waste reduction in the 1st year
+  "8c450f84": "Bon pour la planète", // Good For The Planet
+  "6fb8dac0": "Le premier objectif de Meublation est de réduire les déchets en échangeant des meubles d'occasion.", // Meublation's first goal is waste reduction by trading second-hand furniture.
+  "26f5d37f": "Bon pour le portefeuille", // Good For the Pocket
+  "02dac3ff": "Les meubles d'occasion permettent au vendeur comme à l'acheteur de faire des économies.", // Second-hand furniture allows both the seller and the buyer to save money.
+  "d4df78f9": "Paiements sécurisés", // Secure Payments
+  "0ebc637b": "Grâce à notre expérience, nous sommes un projet sérieux, pleinement soutenu par HEC Paris.", // Thanks to our experience, we are a serious project fully supported by HEC Paris.
+  "961b54c9": "Magasin sur le campus", // On-Campus Store
+  "b079f31f": "Pas besoin de faire des kilomètres pour acheter des meubles : notre magasin est sur le campus.", // No need to travel miles to buy furniture, our store is available on the campus.
+  "2d817b75": "Créer une économie circulaire pour le mobilier", // Creating a circular economy for furniture
+  "04e4c858": "Schéma à venir", // Diagram coming soon
+  "af2ec056": "Aller au pied de page", // Go to footer
+  "a10a9bcd": "Mentions légales", // Legal
+  "1d8cd2bf": "Conditions générales", // Terms & Conditions
+  "fa2ead69": "Politique de confidentialité", // Privacy Policy
+  "9cfc9b74": "Nous contacter", // Contact Us
+  "69487521": "Retrouvez-nous sur le campus, aux containers près du <strong>bâtiment B1</strong>", // Find us on campus at the containers near the <strong>B1 building</strong>
+  "bf4ed66a": "1 Rue de la Libération<br/>78351 Jouy-en-Josas", // 1 Rue de la Libération<br/>78351 Jouy-en-Josas
+  "57b76fc6": "Réseaux sociaux", // Social media
+  "0321b263": "© 2026 Meublation. Tous droits réservés.", // © 2026 Meublation. All Rights Reserved.
+  "7c491b68": "Retour en haut", // Back to top
+  "d8dd99d0": "Meublation – Stockage", // Meublation – Store
+  "f7ee1dad": "Stockez vos affaires avec Meublation pendant que vous êtes loin du campus. Tarifs, étapes et formulaire d'inscription.", // Store your belongings with Meublation while you are away from campus. Prices, steps and registration form.
+  "dbe091e8": "Nous gardons vos affaires en sécurité pendant que vous êtes loin du campus.", // We keep your things safe while you are away from campus.
+  "3aaef5c0": "S'inscrire au stockage", // Register for storage
+  "609a8ade": "Remplissez ce formulaire pour stocker vos affaires.", // Fill in this form to store your stuff.
+  "ee7c297e": "Formulaire d'inscription au stockage", // Storage registration form
+  "a9b08ece": "Réservez votre créneau Open Day", // Book your Open Day slot
+  "8727321e": "Choisissez un horaire pour venir stocker vos affaires au bâtiment G.", // Choose a time to come and store your items in building G.
+  "41b2199c": "Réserver un créneau", // Book a slot
+  "a074f0c9": "Ou écrivez à <a>association.meublation@hec.edu</a>", // Or write to <a href="mailto:association.meublation@hec.edu" style="text-decoration: underline;">association.me
+  "be120417": "Si le formulaire ne s'affiche pas, <a>ouvrez-le dans un nouvel onglet</a>.", // If the form does not load, <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8L9rfWwZzJ1FG78e3KhtokeuB_8nmMI
+  "719ac57a": "Lisez tout ce qu'il faut savoir avant de stocker", // Read everything you need to know before storing
+  "8c4aa541": "Stockage", // Storage
+  "7761eb28": "Nous gardons vos affaires pendant votre absence", // We keep your things while you are away
+  "ea3c1e3c": "Vous quittez votre chambre pour quelques mois mais vous revenez à Paris ? Meublation stocke presque tout pour vous, à condition que ce soit bien emballé.", // Leaving your room for a few months but coming back to Paris? Meublation stores almost anything for you, as lon
+  "7a5cb5e1": "Vous pouvez stocker des valises, des cartons ou des meubles. Regroupez les petits objets dans une boîte ou un sac.", // You can store cases, boxes or furniture. Group small items in a box or a bag.
+  "382ab522": "Accepté", // Accepted
+  "015bbe55": "Presque tous les objets, à condition qu'ils soient bien emballés.", // Almost all items, as long as they are well packed.
+  "cd1dfca6": "Non accepté", // Not accepted
+  "eb4b87dd": "Les objets très volumineux, comme les canapés.", // Very large items, such as sofas.
+  "e16dd6e1": "Tarifs", // Prices
+  "0ef8816b": "Des tarifs mensuels simples", // Simple monthly prices
+  "43e02b82": "Petit objet", // Small item
+  "8f2893f3": "par mois", // per month
+  "6584b3c6": "Pour les objets de moins de 60 × 40 × 40 cm.", // For items smaller than 60 × 40 × 40 cm.
+  "3542be28": "Gros objet", // Large item
+  "bdcaa599": "Pour tout ce qui est plus grand, comme un matelas ou une table.", // For anything bigger than that, such as a mattress or a table.
+  "eaff1bdf": "Assurance", // Insurance
+  "67ea5e88": "Pour l'instant, seuls les meubles sont couverts. Pour les vêtements et les autres effets personnels, vous devez signer une décharge de responsabilité.", // For now, only furniture is covered. For clothes and other personal belongings, you need to sign a liability wa
+  "9ffdb952": "Comment ça marche", // How it works
+  "f4904e96": "Stocker vos affaires en cinq étapes", // Storing your things in five steps
+  "0ba75836": "S'inscrire", // Register
+  "21141d4b": "Remplissez le formulaire en ligne.", // Fill in the online form.
+  "1075000b": "Choisissez un horaire pendant les Open Days pour apporter vos affaires.", // Choose a time during the Open Days to bring your things.
+  "4492081c": "Emballer", // Pack
+  "222c25d7": "Emballez bien vos affaires avant de venir.", // Pack your items well before you come.
+  "45bcccf7": "Déposer", // Drop off
+  "da4d4f4f": "Apportez tout au bâtiment G à l'horaire choisi.", // Bring everything to building G at your time slot.
+  "99938b17": "Payer", // Pay
+  "c8f50dd8": "Payez par carte lors du dépôt. <strong>Les paiements en espèces ne sont pas acceptés.</strong> Vos affaires sont ensuite étiquetées.", // Pay by card when you drop off. <strong>Cash is not accepted.</strong> Your items are then labelled.
+  "b9f5d32e": "Récupération", // Pick-up
+  "b85164f3": "Récupérer vos affaires", // Getting your things back
+  "44808a95": "Pendant les Open Days", // During Open Days
+  "2d401fa4": "Réservez un créneau par e-mail, puis venez au bâtiment G à l'horaire choisi.", // Book a slot by email, then come to building G at the time you chose.
+  "9fedd350": "Réserver un créneau de récupération", // Book a pick-up slot
+  "4f3902cb": "En dehors des Open Days", // Outside Open Days
+  "05a459ad": "Écrivez à l'association par e-mail. Vous devrez vous adapter aux disponibilités de nos membres.", // Write to the association by email. You will need to adapt to the availability of our members.
+  "8a8d6a7d": "Fermé en été", // Closed in summer
+  "fbc5198c": "L'association est fermée d'environ le 10 juin au 25 août.", // The association is closed from about 10 June to 25 August.
+  "c7edd75f": "Les bénévoles ne sont pas toujours disponibles.", // Volunteers are not always available.
+  "81bac9d6": "Meublation – Vendre", // Meublation – Sell
+  "7925bf70": "Donnez une seconde vie à vos meubles : inscrivez vos objets et vendez-les à d'autres étudiants de HEC Paris.", // Give your furniture a second life: register your items and sell them to other HEC Paris students.
+  "e4bd8caf": "Donnez une seconde vie à vos meubles, et soyez payé quand ils se vendent.", // Give your furniture a second life, and get paid when it sells.
+  "b7cfd36f": "Prêt à vendre ?", // Ready to sell?
+  "57ce7095": "Remplissez ce formulaire pour vendre vos affaires.", // Fill in this form to sell your stuff.
+  "bf49a2af": "Avant de commencer", // Before you start
+  "2879633f": "Remplissez un formulaire pour chaque objet.", // Fill in one form for each item.
+  "2e1e5480": "Vous devez avoir un compte Revolut vérifié pour vendre.", // You need a verified Revolut account to sell stuff.
+  "7ff61e0d": "Formulaire d'inscription à la vente", // Selling registration form
+  "5150d8a9": "Si le formulaire ne s'affiche pas, <a>ouvrez-le dans un nouvel onglet</a>.", // If the form does not load, <a href="https://docs.google.com/forms/d/e/1FAIpQLScICO3y_b9OPOqsg2PEiifuqKRkhJ1GwP
+  "fa5a8550": "Lisez tout ce qu'il faut savoir avant de vendre", // Read everything you need to know before selling
+  "9dea4016": "Objets", // Items
+  "23e5370b": "Ce que vous pouvez vendre", // What you can sell
+  "7ab75815": "Apportez ce dont les autres étudiants ont besoin pour meubler leur chambre. Meublation compte sur vous pour faire plaisir à la prochaine génération.", // Bring the things other students need to furnish their room. Meublation is counting on you to please the next g
+  "8c4cb78e": "Chaises, canapés et tables", // Chairs, sofas and tables
+  "c264d7df": "Appareils électroniques", // Electronic devices
+  "9262f223": "Outils et ustensiles", // Tools and utensils
+  "387baf01": "Divers", // Miscellaneous
+  "2c3dbc02": "Objets cassés", // Broken items
+  "99ca06ef": "Nourriture périssable", // Perishable food
+  "925c8aa2": "Objets dangereux", // Dangerous items
+  "786bd178": "Réfrigérateurs et congélateurs : le service des résidences de HEC en installe désormais un dans chaque chambre. Si vous en avez déjà acheté un, contactez ce service.", // Fridges and freezers: the HEC residence service now installs one in every room. If you already bought one, con
+  "7dadd2a4": "Bon à savoir", // Good to know
+  "0031741a": "Meublation peut refuser tout objet qui ne semble pas convenir.", // Meublation can refuse any item that does not seem suitable.
+  "2b5c2ec1": "Vendre en six étapes", // Selling in six steps
+  "83ccdb01": "Inscrire chaque objet", // Register each item
+  "7f600688": "Remplissez le formulaire en ligne. Il faut un formulaire par objet.", // Fill in the online form. You need one form per item.
+  "99d22ac3": "Choisissez un horaire pendant les Open Days pour apporter vos objets.", // Choose a time during the Open Days to bring your items.
+  "0b40684f": "Emballer avec soin", // Pack carefully
+  "b02d7a60": "Emballez bien vos objets, surtout les petits.", // Pack your items well, especially the small ones.
+  "4c1cb829": "Les déposer", // Drop them off
+  "44df1436": "Laissez-les dans les containers derrière le bâtiment B1, pendant les horaires d'ouverture.", // Leave them in the containers behind building B1, during opening hours.
+  "e4de59a1": "Nous les vendons", // We sell them
+  "f329efd5": "Meublation fait de son mieux pour vendre vos objets aux étudiants qui arrivent.", // Meublation does its best to sell your items to the arriving students.
+  "57552398": "Être payé", // Get paid
+  "f1dc09af": "Après la vente, vous êtes payé directement sur votre compte Revolut.", // After the sale, you are paid directly on your Revolut account.
+  "c453a4b8": "Paiement", // Payment
+  "fac22560": "Comment vous êtes payé", // How you get paid
+  "19aab514": "Un compte Revolut vérifié est obligatoire", // A verified Revolut account is required
+  "d6b02a3f": "Sans compte vérifié, nous ne pouvons pas accepter votre objet.", // Without one, we cannot accept your item.
+  "3fdddb0d": "Comment fonctionne le paiement ?", // How does the payment work?
+  "285bb915": "L'acheteur vous paie directement via Revolut. Meublation garde une commission de 10 %.", // The buyer pays you directly through Revolut. Meublation keeps a 10% commission.
+  "2ed28573": "Combien de temps mon objet peut-il rester en vente ?", // How long can my item stay for sale?
+  "d0c3c59b": "Il n'y a pas de limite. Après un an, Meublation peut baisser le prix d'un objet invendu. Après deux ans, il peut être donné à une ONG partenaire ou bradé à très bas prix.", // There is no deadline. After one year, Meublation may lower the price of an unsold item. After two years, it ca
+  "ff7c0fcd": "Exemples", // Examples
+  "a4704c18": "Des objets qui trouvent un nouveau foyer", // Items that find a new home
+  "69c19be0": "Photos à venir", // Photos coming soon
+  "a7c5b8f4": "Meublation – Acheter", // Meublation – Buy
+  "d724e753": "Meublez votre chambre d'occasion, directement sur le campus de HEC Paris. Comment acheter et quand le magasin ouvre.", // Furnish your room second hand, right on the HEC Paris campus. How to buy and when the store opens.
+  "a4869ff8": "Meublez votre chambre d'occasion, directement sur le campus.", // Furnish your room second hand, right on campus.
+  "63a04d8c": "Le magasin", // The store
+  "b5d66360": "Tout est d'occasion, venu d'anciens étudiants de HEC", // Everything is second hand, from former HEC students
+  "a0355521": "Chaises et tables", // Chairs and tables
+  "e60da4eb": "Canapés", // Sofas
+  "cd32106b": "Informatique", // IT
+  "0d025e99": "Produits d'entretien", // Cleaning products
+  "5406f510": "Divers, dont des étendoirs", // Miscellaneous, including drying racks
+  "28833baf": "Mieux pour la planète", // Better for the planet
+  "1cc679e3": "Moins d'émissions de CO2 et moins de matières premières utilisées.", // Cut CO2 emissions and the use of raw materials.
+  "af10c464": "Mieux pour votre portefeuille", // Better for your wallet
+  "0b7e1d08": "Économisez sur tout ce dont vous avez besoin pour votre chambre.", // Save money on everything you need for your room.
+  "2f89b327": "Plus juste", // Fairer
+  "00f4b565": "Votre argent va à d'anciens étudiants, pas à des entreprises.", // Your money goes to former students, not to companies.
+  "3f4d4a8c": "Acheter en trois étapes", // Buying in three steps
+  "8b9c0c93": "Venir au magasin", // Come to the store
+  "97fec858": "Suivez vos e-mails et notre compte Instagram pour savoir quand auront lieu les prochains Open Days.", // Watch your emails and our Instagram account to find out when the next Open Days are.
+  "9a2fccdd": "Choisir vos objets", // Pick your items
+  "6c56b36e": "Choisissez ce dont vous avez besoin parmi les centaines de pièces.", // Choose what you need among the hundreds of pieces.
+  "10d825e3": "Seuls les paiements par carte sont acceptés. <strong>Les paiements en espèces ne sont pas acceptés.</strong><br/>Vous n'avez plus besoin d'un compte Revolut pour payer l'ancien propriétaire : Meublation prend cette étape en charge !", // Only payments by card are accepted. <strong>Cash is not accepted.</strong><br/>You no longer need a Revolut ac
+  "dc6fc5a8": "Open Days", // Open Days
+  "a6fe25c5": "Le magasin ouvre pendant les Open Days", // The store opens during Open Days
+  "8ff3a3ce": "Les Open Days ont généralement lieu au début et à la fin de chaque semestre, et parfois à d'autres moments.", // Open Days are usually at the start and the end of each semester, and sometimes at other times.
+  "26240b0b": "Prochaines dates : la semaine du 9 novembre (les détails arrivent)", // Next dates: the week of November 9 (details are coming)
+  "beab12f5": "En dehors de ces périodes, écrivez à l'association. Les bénévoles ne sont pas toujours disponibles.", // Outside these periods, write to the association. Volunteers are not always available.
+  "f1a951c7": "Prochain Open Day dans", // Next Open Day in
+  "e807d3cc": "Jours", // Days
+  "6a7e7316": "Heures", // Hours
+  "f670ea66": "Minutes", // Minutes
+  "ce5bf551": "Lieu", // Location
+  "8cc9545b": "Deux containers derrière le bâtiment B1", // Two containers behind building B1
+  "8a64abce": "Le magasin est composé de deux containers, sur le parking derrière le bâtiment B1 du campus de HEC Paris.", // The store is made of two containers, in the car park behind building B1 on the HEC Paris campus.
+  "1c4ed77c": "1 Rue de la Libération, 78351 Jouy-en-Josas", // 1 Rue de la Libération, 78351 Jouy-en-Josas
+  "7de2be07": "Ouvrir dans Google Maps", // Open in Google Maps
+  "f48eb8f8": "Containers derrière le bâtiment B1", // Containers behind building B1
+  "5c93310d": "Galerie", // Gallery
+  "f7fbc352": "Un aperçu du magasin", // A glimpse of the store
+  "e00b08be": "Meublation – Qui sommes-nous", // Meublation – About Us
+  "9e7fdbf5": "L'histoire, les valeurs, les réalisations et l'équipe de Meublation, la plateforme de mobilier durable de HEC Paris.", // The story, values, achievements and team of Meublation, the sustainable furniture platform of HEC Paris.
+  "1d227ae5": "Un projet étudiant pour une économie circulaire à HEC Paris.", // A student-run project for a circular economy at HEC Paris.
+  "378ca739": "Notre histoire", // Our story
+  "ffb62e93": "D'une idée d'étudiants à un service du campus", // From a student idea to a campus service
+  "82dc28d9": "Meublation naît comme un projet étudiant sur le campus de HEC Paris, pour construire une économie circulaire du mobilier.", // Meublation starts as a student project on the HEC Paris campus, to build a circular economy for furniture.
+  "a64fb7a0": "Esp'R, le club écologique de HEC Paris, reprend la gestion du projet.", // Esp'R, the ecological club of HEC Paris, takes over the management of the project.
+  "d48a5cda": "Ensuite", // Then
+  "62ed0fb7": "Un service de stockage est ajouté pour les étudiants qui quittent le campus longtemps.", // A storage service is added for students who leave campus for a long time.
+  "10ac3d04": "Prochainement", // Next
+  "238d4c31": "Un service de location est la prochaine étape.", // A rental service is the next step.
+  "f2846bcb": "de meubles et d'appareils réutilisables jetés chaque année par les étudiants qui quittent le campus.", // of reusable furniture and appliances thrown away every year by students leaving campus.
+  "9c4c7e69": "Pourquoi Meublation", // Why Meublation
+  "cf3f4611": "Née d'un constat simple", // Born from a simple observation
+  "7e3d18b9": "Trop de meubles réutilisables étaient jetés quand les étudiants quittaient le campus.", // Too much reusable furniture was thrown away when students left campus.
+  "4c36d41a": "Notre idée est de faciliter la revente de leurs meubles par les étudiants qui partent à ceux qui arrivent. Cela réduit les déchets et offre aux étudiants un moyen abordable de meubler leur chambre.", // Our idea is to make it easy for outgoing students to resell their furniture to incoming students. It reduces w
+  "ac848fa2": "Équipe", // Team
+  "35420a62": "Les personnes derrière Meublation", // The people behind Meublation
+  "c03450b3": "Membres actuels", // Current members
+  "7a6e4f11": "Anciens membres", // Former members
+  "0df6a074": "Meublation – Conditions générales", // Meublation – Terms &amp; Conditions
+  "ee5eb7a9": "Conditions générales de vente et de stockage de Meublation, en anglais et en français.", // General sales and storage conditions of Meublation, in English and French.
+  "39bb1dd2": "Les règles qui s'appliquent quand vous achetez, vendez ou stockez avec Meublation.", // The rules that apply when you buy, sell or store with Meublation.
+  "f1ccb326": "Meublation – Politique de confidentialité", // Meublation – Privacy Policy
+  "d03a4e2f": "Politique de confidentialité de Meublation, en anglais et en français." // Meublation privacy policy, in English and French.
+};
+
+</script>
+<script>
+/* Meublation – language switch and countdown. */
+(function () {
+  var KEY = 'meublation-lang';
+  var FR = window.MEUBLATION_FR || {};
+
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(l) { try { localStorage.setItem(KEY, l); } catch (e) {} }
+  function initialLang() {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'fr' || q === 'en') return q;
+    var s = stored();
+    return s === 'fr' || s === 'en' ? s : 'en';
+  }
+
+  // Keep the links (href, style...) of the English version when a French text contains links.
+  function withLinks(frHtml, enHtml) {
+    var f = document.createElement('template'); f.innerHTML = frHtml;
+    var e = document.createElement('template'); e.innerHTML = enHtml;
+    var src = e.content.querySelectorAll('a');
+    f.content.querySelectorAll('a').forEach(function (a, i) {
+      if (!src[i]) return;
+      for (var j = 0; j < src[i].attributes.length; j++) a.setAttribute(src[i].attributes[j].name, src[i].attributes[j].value);
+    });
+    var d = document.createElement('div'); d.appendChild(f.content); return d.innerHTML;
+  }
+
+  var ATTRS = [['data-i18n-aria', 'aria-label'], ['data-i18n-title', 'title'], ['data-i18n-content', 'content']];
+
+  function apply(lang) {
+    var fr = lang === 'fr';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var isTitle = el.tagName === 'TITLE';
+      if (el.dataset.en === undefined) el.dataset.en = isTitle ? el.textContent : el.innerHTML;
+      var k = el.getAttribute('data-i18n');
+      var text = el.dataset.en;
+      if (fr && FR[k]) text = (!isTitle && text.indexOf('<a') > -1) ? withLinks(FR[k], text) : FR[k];
+      if (isTitle) el.textContent = text; else el.innerHTML = text;
+    });
+    ATTRS.forEach(function (p) {
+      document.querySelectorAll('[' + p[0] + ']').forEach(function (el) {
+        var store = 'en' + p[1].replace('-', '');
+        if (el.dataset[store] === undefined) el.dataset[store] = el.getAttribute(p[1]) || '';
+        var k = el.getAttribute(p[0]);
+        el.setAttribute(p[1], fr && FR[k] ? FR[k] : el.dataset[store]);
+      });
+    });
+    document.querySelectorAll('.lang').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.lang').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var l = b.getAttribute('data-lang');
+      save(l); apply(l);
+    });
+  });
+  apply(initialLang());
+
+  // Countdown to the next Open Day (date set in the data-open-day attribute of the #open section on buy.html).
+  var sec = document.querySelector('[data-open-day]');
+  if (sec) {
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    var set = function (name, v) { var el = sec.querySelector('[data-cd="' + name + '"]'); if (el) el.textContent = v; };
+    var tick = function () {
+      var target = Date.parse(sec.getAttribute('data-open-day'));
+      if (isNaN(target)) return;
+      var ms = Math.max(0, target - Date.now());
+      set('days', Math.floor(ms / 86400000));
+      set('hours', pad(Math.floor(ms / 3600000) % 24));
+      set('minutes', pad(Math.floor(ms / 60000) % 60));
+    };
+    tick();
+    setInterval(tick, 30000);
+  }
+})();
+
+</script>
 </body>
 </html>

@@ -47,13 +47,29 @@ Si une case de lien est vide, le bouton ouvre un e-mail vers l'association.
 
 Le site lit une version publiée du Sheet au format CSV. Ne pas supprimer cette publication (Fichier → Partager → Publier sur le Web).
 
-Lien CSV : *(à compléter : coller ici le lien une fois le site codé)*
+Lien CSV (il est aussi écrit au début du fichier `js/opendays.js`) :
+`https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-3lZ2IoZTVXcPoOZE326Vi_jVmqwKZLI0cA7nWs0PVMSOA2XcxQKzFy7Os6Wov6kr19IqV84OjGiP/pub?output=csv`
+
+Où ça s'affiche :
+
+- Page **Buy** : la date du compte à rebours et la phrase « Next dates ».
+- Page d'accueil : une petite fenêtre (pop-up) avec le texte des prochains Open Days. Elle se ferme avec la croix et ne revient pas pendant la visite.
+- Page **Store** : les boutons « Book a slot » et « Book a pick-up slot » ouvrent les liens des cases B3 et B4.
+
+Les modifications du Sheet peuvent mettre quelques minutes à apparaître sur le site (Google met à jour la version publiée).
+
+Si le Sheet ne peut pas être lu, le site garde les textes écrits dans ses pages.
 
 ## 5. Formulaires
 
 - Les formulaires Store et Sell sont des Google Forms intégrés dans les pages.
 - Ils sont reliés au Google Sheet de l'association (onglets `STO_import` et `SEL_IMPORT`).
 - Les formulaires sont en anglais uniquement.
+- Si un formulaire change d'adresse, il faut modifier son lien dans `sell.html` ou `store.html` (cherche `docs.google.com/forms`). Demande à Claude de le faire.
+
+## Textes en français
+
+Chaque page contient ses textes en anglais, et en bas du fichier un bloc `MEUBLATION_FR` avec les traductions françaises. Le plus simple est de demander à Claude de modifier un texte dans les deux langues.
 
 ## 6. Nom de domaine et DNS
 
