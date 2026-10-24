@@ -53,7 +53,7 @@ Lien CSV (il est aussi écrit au début du fichier `js/opendays.js`) :
 Où ça s'affiche :
 
 - Page **Buy** : la date du compte à rebours et la phrase « Next dates ».
-- Page d'accueil : une fenêtre (pop-up) « Opening soon » avec le texte des prochains Open Days et le nombre de jours restants. Elle apparaît après l'écran de chargement, se ferme avec la croix, « Got it! », la touche Échap ou un clic à côté, et ne revient pas pendant la visite. Elle n'apparaît pas si la case B1 est vide ou si la date est passée.
+- Page d'accueil : une fenêtre (pop-up) « Opening soon » avec le texte des prochains Open Days et le nombre de jours restants. Elle apparaît une fois la page chargée, se ferme avec la croix, « Got it! », la touche Échap ou un clic à côté, et ne revient pas pendant la visite. Elle n'apparaît pas si la case B1 est vide ou si la date est passée.
 - Page **Store** : les boutons « Book a slot » et « Book a pick-up slot » ouvrent les liens des cases B3 et B4.
 
 Les modifications du Sheet peuvent mettre quelques minutes à apparaître sur le site (Google met à jour la version publiée).
@@ -69,7 +69,7 @@ Si le Sheet ne peut pas être lu, le site garde les textes écrits dans ses page
 
 ## Écran de chargement
 
-Une feuille verte tombe sur fond vert à l'arrivée sur le site (1 à 2,5 secondes). Il n'apparaît qu'une fois par visite, pas à chaque page, et jamais pour les personnes qui ont demandé moins d'animations dans leur appareil. Il est dans `js/loader.js`.
+Si une page met du temps à s'afficher (plus de 0,3 seconde), une feuille verte tombe sur fond vert jusqu'à la fin du chargement. Sur une connexion rapide, il n'apparaît jamais. Il n'apparaît pas non plus pour les personnes qui ont demandé moins d'animations dans leur appareil. Il est dans `js/loader.js`.
 
 ## Calculateur de stockage
 
