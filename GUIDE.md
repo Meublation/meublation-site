@@ -53,7 +53,7 @@ Lien CSV (il est aussi écrit au début du fichier `js/opendays.js`) :
 Où ça s'affiche :
 
 - Page **Buy** : la date du compte à rebours et la phrase « Next dates ».
-- Page d'accueil : une petite fenêtre (pop-up) avec le texte des prochains Open Days. Elle se ferme avec la croix et ne revient pas pendant la visite.
+- Page d'accueil : une fenêtre (pop-up) « Opening soon » avec le texte des prochains Open Days et le nombre de jours restants. Elle apparaît après l'écran de chargement, se ferme avec la croix, « Got it! », la touche Échap ou un clic à côté, et ne revient pas pendant la visite. Elle n'apparaît pas si la case B1 est vide ou si la date est passée.
 - Page **Store** : les boutons « Book a slot » et « Book a pick-up slot » ouvrent les liens des cases B3 et B4.
 
 Les modifications du Sheet peuvent mettre quelques minutes à apparaître sur le site (Google met à jour la version publiée).
@@ -67,9 +67,21 @@ Si le Sheet ne peut pas être lu, le site garde les textes écrits dans ses page
 - Les formulaires sont en anglais uniquement.
 - Si un formulaire change d'adresse, il faut modifier son lien dans `sell.html` ou `store.html` (cherche `docs.google.com/forms`). Demande à Claude de le faire.
 
+## Écran de chargement
+
+Une feuille verte tombe sur fond vert à l'arrivée sur le site (1 à 2,5 secondes). Il n'apparaît qu'une fois par visite, pas à chaque page, et jamais pour les personnes qui ont demandé moins d'animations dans leur appareil. Il est dans `js/loader.js`.
+
+## Calculateur de stockage
+
+Sur la page Store, le prix est : (petits objets × 2 € + grands objets × 4 €) × nombre de mois. Les tarifs sont au début de `js/store-calc.js` (et dans les textes « per month each » de `store.html`). Demande à Claude de les changer ensemble.
+
+## Images
+
+Les photos sont dans `assets/img/`. Pour en remplacer une, garder le même nom de fichier ou demander à Claude de l'ajouter.
+
 ## Textes en français
 
-Chaque page contient ses textes en anglais, et en bas du fichier un bloc `MEUBLATION_FR` avec les traductions françaises. Le plus simple est de demander à Claude de modifier un texte dans les deux langues.
+Chaque page contient ses textes en anglais, et en bas du fichier un bloc `MEUBLATION_FR` avec les traductions françaises (le code de chaque texte est écrit dans l'attribut `data-i18n`). Le plus simple est de demander à Claude de modifier un texte dans les deux langues. Le changement de langue est géré par `js/site.js`.
 
 ## 6. Nom de domaine et DNS
 

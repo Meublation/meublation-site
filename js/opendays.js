@@ -7,6 +7,7 @@
  * An empty link cell keeps the default e-mail link of the page.
  *
  * If the Sheet cannot be read, the pages keep the texts written in their HTML.
+ * On the home page, an opening pop-up (#od-popup) is shown once per visit when the date is in the future.
  */
 (function () {
   'use strict';
@@ -78,6 +79,11 @@
     return document.documentElement.lang === 'fr' ? 'fr' : 'en';
   }
 
+  function lowerFirst(s) {
+    // "Week of November 9" -> "week of November 9" (but keep acronyms such as "OD")
+    return /^[A-ZÀ-Ý][a-zà-ÿ]/.test(s) ? s.charAt(0).toLowerCase() + s.slice(1) : s;
+  }
+
   // --- Update the page ---
   function render() {
     var lang = currentLang();
@@ -86,7 +92,8 @@
     document.querySelectorAll('[data-od="text"]').forEach(function (el) {
       if (el.dataset.odEn === undefined) el.dataset.odEn = el.textContent;
       var fallback = lang === 'fr' && el.getAttribute('data-fr') ? el.getAttribute('data-fr') : el.dataset.odEn;
-      el.textContent = text || fallback;
+      var shown = text || fallback;
+      el.textContent = (text && el.hasAttribute('data-od-lower')) ? lowerFirst(shown) : shown;
     });
 
     document.querySelectorAll('[data-od-link]').forEach(function (a) {
@@ -103,34 +110,123 @@
       if (ms) sec.setAttribute('data-open-day', new Date(ms).toISOString());
     }
 
-    var popup = document.getElementById('od-popup');
-    if (popup) {
-      var msg = popup.querySelector('[data-od="popup-text"]');
-      if (msg) msg.textContent = text || msg.textContent;
+    renderPopupNumbers(lang);
+  }
+
+  // --- Calendar days between today and the Open Day, both read in Paris time ---
+  function parisYmd(ms) {
+    var parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(new Date(ms));
+    var o = {};
+    parts.forEach(function (p) { o[p.type] = p.value; });
+    return Date.UTC(+o.year, +o.month - 1, +o.day);
+  }
+
+  function popupTarget() {
+    var box = document.querySelector('.pu-count');
+    if (!box) return null;
+    var raw = sheetLoaded ? data.date : (data.date || box.getAttribute('data-default-date') || '');
+    return raw ? parseDate(raw) : null;
+  }
+
+  function daysUntil() {
+    var target = popupTarget();
+    if (!target) return null;
+    return Math.round((parisYmd(target) - parisYmd(Date.now())) / 86400000);
+  }
+
+  function dateLabel(ms, lang) {
+    if (lang === 'fr') {
+      var d = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', day: 'numeric', month: 'long' }).format(new Date(ms));
+      return d.replace(/^1 /, '1er ');
+    }
+    return new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', day: 'numeric', month: 'long' }).format(new Date(ms));
+  }
+
+  function renderPopupNumbers(lang) {
+    var box = document.querySelector('.pu-count');
+    if (!box) return;
+    var days = daysUntil(), target = popupTarget();
+    if (days === null || days < 0) return;
+    var num = box.querySelector('[data-od="popup-days"]');
+    var lbl = box.querySelector('.pu-lbl');
+    var fr = lang === 'fr';
+    if (days === 0) {
+      num.textContent = fr ? 'Aujourd’hui' : 'Today';
+      num.classList.add('pu-word');
+      lbl.hidden = true;
+    } else {
+      num.textContent = String(days);
+      num.classList.remove('pu-word');
+      lbl.hidden = false;
+      box.querySelector('[data-od="popup-daylabel"]').textContent = fr ? (days === 1 ? 'jour' : 'jours') : (days === 1 ? 'day' : 'days');
+      box.querySelector('[data-od="popup-datelabel"]').textContent = dateLabel(target, lang);
     }
   }
 
-  // --- Pop-up on the home page (closed for the rest of the visit once dismissed) ---
-  function setupPopup() {
-    var popup = document.getElementById('od-popup');
-    if (!popup) return;
-    var KEY = 'meublation-od-popup';
-    try { if (sessionStorage.getItem(KEY) === 'closed') return; } catch (e) {}
-    var close = popup.querySelector('[data-od="close"]');
-    if (close) {
-      close.addEventListener('click', function () {
-        popup.hidden = true;
-        try { sessionStorage.setItem(KEY, 'closed'); } catch (e) {}
-      });
-    }
-    setTimeout(function () { popup.hidden = false; }, 1400);
+  // --- Opening pop-up on the home page ---
+  // Shown once per visit, after the loading animation, only if the Open Day is today or later.
+  var sheetLoaded = false, sheetSettled = false, popupDone = false, popupWait = null;
+  var popupStart = Date.now();
+
+  function closePopup(popup, opener) {
+    popup.hidden = true;
+    document.documentElement.classList.remove('pu-open');
+    try { sessionStorage.setItem('meublation-od-popup', 'closed'); } catch (e) {}
+    if (opener && opener.focus) { try { opener.focus(); } catch (e) {} }
   }
+
+  function openPopup(popup) {
+    var opener = document.activeElement;
+    var card = popup.querySelector('.pu-card');
+    var ok = popup.querySelector('[data-od="ok"]');
+    var x = popup.querySelector('[data-od="close"]');
+    popup.hidden = false;
+    document.documentElement.classList.add('pu-open');
+    (ok || card).focus();
+
+    function close() { document.removeEventListener('keydown', onKey, true); closePopup(popup, opener); }
+    function onKey(e) {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      // keep the focus inside the dialog
+      var items = [x, ok].filter(Boolean);
+      var first = items[0], last = items[items.length - 1];
+      if (!card.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+      else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    document.addEventListener('keydown', onKey, true);
+    if (x) x.addEventListener('click', close);
+    if (ok) ok.addEventListener('click', close);
+    popup.addEventListener('click', function (e) { if (e.target === popup) close(); });
+  }
+
+  function maybeShowPopup() {
+    var popup = document.getElementById('od-popup');
+    if (!popup || popupDone) return;
+    try { if (sessionStorage.getItem('meublation-od-popup') === 'closed') { popupDone = true; return; } } catch (e) {}
+    // wait for the loading animation and for the Sheet (or a 3 s timeout)
+    if (!window.__meublationReady) return;
+    if (!sheetSettled && Date.now() - popupStart < 3000) {
+      if (!popupWait) popupWait = setTimeout(function () { popupWait = null; maybeShowPopup(); }, 3000 - (Date.now() - popupStart));
+      return;
+    }
+    popupDone = true;
+    var days = daysUntil();
+    if (days === null || days < 0) return;
+    renderPopupNumbers(currentLang());
+    setTimeout(function () { openPopup(popup); }, 600);
+  }
+
+  document.addEventListener('meublation:ready', maybeShowPopup);
 
   // The language switch changes the lang attribute of <html>: update our texts too.
   new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   render();
-  setupPopup();
+  maybeShowPopup();
 
   if (!window.fetch) return;
   fetch(CSV_URL, { cache: 'no-store' })
@@ -142,7 +238,9 @@
       data.fr = cellAt(rows, 1, 2);
       data.drop = cellAt(rows, 2, 1);
       data.pickup = cellAt(rows, 3, 1);
+      sheetLoaded = true;
       render();
     })
-    .catch(function () { /* keep the texts written in the HTML */ });
+    .catch(function () { /* keep the texts written in the HTML */ })
+    .then(function () { sheetSettled = true; maybeShowPopup(); });
 })();
