@@ -48,7 +48,7 @@ Si une case de lien est vide, le bouton ouvre un e-mail vers l'association.
 Le site lit une version publiée du Sheet au format CSV. Ne pas supprimer cette publication (Fichier → Partager → Publier sur le Web).
 
 Lien CSV (il est aussi écrit au début du fichier `js/opendays.js`) :
-`https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-3lZ2IoZTVXcPoOZE326Vi_jVmqwKZLI0cA7nWs0PVMSOA2XcxQKzFy7Os6Wov6kr19IqV84OjGiP/pub?output=csv`
+`https://docs.google.com/spreadsheets/d/e/2PACX-1vS0D0V9SQyAwmFYb84RT9Ty4s-iGndFZbzlq68SqMherGt5rlJghVpGNHbJD0L0xC_qJ38FMtXmlDNv/pub?gid=0&single=true&output=csv`
 
 Où ça s'affiche :
 
