@@ -45,6 +45,11 @@
         el.setAttribute(p[1], fr && FR[k] ? FR[k] : el.dataset[store]);
       });
     });
+    // e-mail links with a French subject/message
+    document.querySelectorAll('[data-href-fr]').forEach(function (a) {
+      if (a.getAttribute('data-href-en') === null) a.setAttribute('data-href-en', a.getAttribute('href') || '');
+      a.setAttribute('href', fr ? a.getAttribute('data-href-fr') : a.getAttribute('data-href-en'));
+    });
     document.querySelectorAll('.lang').forEach(function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
     });

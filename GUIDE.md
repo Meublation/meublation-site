@@ -73,7 +73,7 @@ Si une page met du temps à s'afficher (plus de 0,3 seconde), une feuille verte 
 
 ## Calculateur de stockage
 
-Sur la page Store, le prix est : (petits objets × 2 € + grands objets × 4 €) × nombre de mois. Les tarifs sont au début de `js/store-calc.js` (et dans les textes « per month each » de `store.html`). Demande à Claude de les changer ensemble.
+Sur la page Store, le prix est : (petits objets × 2 € + grands objets × 4 €) × nombre de mois. La location de caisses (en option) coûte 1 € par caisse et par mois, plafonnée à 10 € par caisse. Les tarifs sont au début de `js/store-calc.js` (et dans les textes « per month each » de `store.html`). Demande à Claude de les changer ensemble.
 
 ## Images
 

@@ -97,9 +97,11 @@
     });
 
     document.querySelectorAll('[data-od-link]').forEach(function (a) {
-      if (a.dataset.odDefault === undefined) a.dataset.odDefault = a.getAttribute('href') || '';
+      // default link = the e-mail link of the page, in the language shown
+      var def = (lang === 'fr' && a.getAttribute('data-href-fr')) ? a.getAttribute('data-href-fr') : (a.getAttribute('data-href-en') || a.dataset.odDefault || a.getAttribute('href') || '');
+      if (a.dataset.odDefault === undefined) a.dataset.odDefault = a.getAttribute('data-href-en') || a.getAttribute('href') || '';
       var url = safeLink(a.getAttribute('data-od-link') === 'pickup' ? data.pickup : data.drop);
-      a.setAttribute('href', url || a.dataset.odDefault);
+      a.setAttribute('href', url || def);
       if (url && /^https?:/i.test(url)) { a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener'); }
       else { a.removeAttribute('target'); a.removeAttribute('rel'); }
     });

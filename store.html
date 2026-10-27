@@ -102,6 +102,7 @@ a:focus-visible { outline: 3px solid #2E8B57; outline-offset: 3px; }
 .lang svg { display: block; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; }
 .topbar .langs { margin-left: 4px; }
 @media (max-width: 640px) { .brand-txt { display: none; } .topbar { gap: 8px; } }
+@media (max-width: 900px) { .form-aside { order: -1; flex-basis: 100%; } }
 .gform { display: block; width: 100%; height: var(--gh, 1600px); border: 0; }
 @media (max-width: 640px) { .gform { height: var(--gh-m, 2000px); } }
 </style>
@@ -223,13 +224,52 @@ a:focus-visible { outline: 3px solid #2E8B57; outline-offset: 3px; }
 <span data-i18n="eb54dc52" style="font-size: 14px; color: #3F4B45;">planned duration</span>
 </div>
 </div>
+<div style="margin-top: 4px; padding-top: 16px; border-top: 1px dashed #9DBBA0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;">
+<span data-i18n="7c35a6b4" style="font-size: 15px; font-weight: 700; color: #0E3B2B;">Extra: crate rental</span>
+<div style="display: inline-flex; align-items: center; gap: 8px;">
+<button aria-label="Remove one crate" data-crate="dec" data-i18n-aria="94087c1b" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #9DBBA0; background: #FFFFFF; color: #0E3B2B; font-family: inherit; font-size: 20px; font-weight: 700; line-height: 1; cursor: pointer;" type="button">−</button>
+<span aria-live="polite" data-calc="crates" style="min-width: 28px; text-align: center; font-size: 18px; font-weight: 700; color: #0E3B2B;">0</span>
+<button aria-label="Add one crate" data-crate="inc" data-i18n-aria="70cebb1c" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #9DBBA0; background: #FFFFFF; color: #0E3B2B; font-family: inherit; font-size: 20px; font-weight: 700; line-height: 1; cursor: pointer;" type="button">+</button>
+</div>
+<span data-i18n="d3a9cc28" style="font-size: 14px; color: #3F4B45;">€1 per crate per month, max. €10 per crate</span>
+</div>
 </div>
 <div aria-live="polite" style="flex: 2 1 280px; min-width: 0; box-sizing: border-box; border-radius: 20px; background: #17543C; color: #F5F1E6; padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 <div class="eyebrow" data-i18n="0f62137a" style="color: #9BE08C;">Estimated price</div>
 <div style="font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(48px, 6vw, 72px); line-height: 1; letter-spacing: -0.04em; color: #9BE08C;"><span data-calc="total">€6</span></div>
 <p class="txt" data-i18n="35ec6cf4" style="font-size: 16px; color: rgba(245, 241, 230, 0.88);"><span data-calc="monthly">€2</span> per month for <span data-calc="monthsLabel">3 months</span></p>
+<p class="txt" data-crate-line="" data-i18n="d9335ac6" style="display: none; font-size: 15px; color: rgba(245, 241, 230, 0.88);">+ <span data-calc="crateCost">€0</span> crate rental</p>
 <a class="btn btn-solid" data-i18n="d45402e3" href="#register" style="align-self: flex-start; margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 12px 28px; border-radius: 999px; background: #9BE08C; color: #0E3B2B; font-size: 17px; font-weight: 700; text-align: center;">Store my belongings at this price<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="flex: none;" viewbox="0 0 24 24" width="20"><path d="M6 9l6 6 6-6"></path></svg></a>
 </div>
+</div>
+</div>
+<a aria-label="Next section" class="next next-dark" data-i18n-aria="affb8916" href="#crates"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
+</section>
+<!-- 3b. Storage crates -->
+<section class="sec" id="crates" style="background: #F5F1E6;">
+<div class="wrap" style="display: flex; flex-wrap: wrap; align-items: stretch; gap: clamp(28px, 4vw, 56px);">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px;">
+<div class="eyebrow" data-i18n="8f11bdf9" style="color: #17543C;">Crates</div>
+<h2 class="h2" data-i18n="912ba735" style="color: #0E3B2B;">Need storage crates?</h2>
+<div class="bar rule" style="background: #2E8B57;"></div>
+<p class="lead" data-i18n="b74b69de" style="color: #3F4B45;">If you need crates to store your things (60 × 40 × 40 cm), we rent those too!</p>
+<div class="cardb card pop" style="background: #17543C; color: #F5F1E6; align-self: flex-start;">
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span style="font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(56px, 7vw, 80px); line-height: 1; letter-spacing: -0.04em; color: #9BE08C;">€1</span>
+<span data-i18n="5d1e3921" style="font-size: 18px; color: rgba(245, 241, 230, 0.9);">per crate per month</span>
+</div>
+<p class="txt" data-i18n="86e6ff92" style="color: rgba(245, 241, 230, 0.88);">Capped at €10 per crate.</p>
+</div>
+</div>
+<div class="cardb card pop d2" style="flex: 1 1 380px; background: #FFFFFF; gap: 20px;">
+<h3 class="h3" data-i18n="e21860bf" style="color: #0E3B2B;">How does it work?</h3>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px;">
+<li style="display: flex; align-items: flex-start; gap: 14px;"><span style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #17543C; color: #F5F1E6; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 17px;">1</span><span class="txt" data-i18n="4a62a449" style="color: #0E3B2B; padding-top: 5px;">You contact us by email.</span></li>
+<li style="display: flex; align-items: flex-start; gap: 14px;"><span style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #17543C; color: #F5F1E6; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 17px;">2</span><span class="txt" data-i18n="c38a0bde" style="color: #0E3B2B; padding-top: 5px;">We tell you when to come and pick up your crates.</span></li>
+<li style="display: flex; align-items: flex-start; gap: 14px;"><span style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #17543C; color: #F5F1E6; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 17px;">3</span><span class="txt" data-i18n="e71ce2b7" style="color: #0E3B2B; padding-top: 5px;">You drop off your things at Meublation.</span></li>
+<li style="display: flex; align-items: flex-start; gap: 14px;"><span style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #17543C; color: #F5F1E6; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif; font-weight: 700; font-size: 17px;">4</span><span class="txt" data-i18n="0991899a" style="color: #0E3B2B; padding-top: 5px;">When you collect your things, you have 7 days to return the crates!</span></li>
+</ol>
+<a class="btn btn-dark" data-href-fr="mailto:association.meublation@hec.edu?subject=Caisses%20de%20stockage" data-i18n="5a37e236" href="mailto:association.meublation@hec.edu?subject=Storage%20crates" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #17543C; color: #F5F1E6; font-size: 17px; font-weight: 700;">Email us about crates</a>
 </div>
 </div>
 <a aria-label="Next section" class="next next-dark" data-i18n-aria="affb8916" href="#steps"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
@@ -286,7 +326,7 @@ a:focus-visible { outline: 3px solid #2E8B57; outline-offset: 3px; }
 <div class="cardb card pop" style="flex: 1 1 320px; background: #FFFFFF;">
 <h3 class="h3" data-i18n="9cbee29f" style="color: #0E3B2B;">During Open Days</h3>
 <p class="txt" data-i18n="46f6541c" style="color: #3F4B45;">Book a slot by email, then come to building G at the time you chose.</p>
-<a class="btn" data-i18n="797ae8a4" data-od-link="pickup" href="mailto:association.meublation@hec.edu?subject=Pick-up%20slot%20%28storage%29&amp;body=Hello%20Meublation%20team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20slot%20to%20pick%20up%20my%20stored%20items%20during%20the%20Open%20Days.%0D%0A%0D%0AName%3A%0D%0APreferred%20date%20and%20time%3A%0D%0A" style="align-self: flex-start; margin-top: auto; font-size: 17px; font-weight: 700; color: #17543C; text-decoration: underline;">Book a pick-up slot</a>
+<a class="btn" data-href-fr="mailto:association.meublation@hec.edu?subject=Cr%C3%A9neau%20de%20r%C3%A9cup%C3%A9ration%20%28stockage%29&amp;body=Bonjour%20l%27%C3%A9quipe%20Meublation%2C%0D%0A%0D%0AJe%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20pour%20r%C3%A9cup%C3%A9rer%20mes%20affaires%20stock%C3%A9es%20pendant%20les%20Open%20Days.%0D%0A%0D%0ANom%20%3A%0D%0ADate%20et%20heure%20souhait%C3%A9es%20%3A%0D%0A" data-i18n="797ae8a4" data-od-link="pickup" href="mailto:association.meublation@hec.edu?subject=Pick-up%20slot%20%28storage%29&amp;body=Hello%20Meublation%20team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20slot%20to%20pick%20up%20my%20stored%20items%20during%20the%20Open%20Days.%0D%0A%0D%0AName%3A%0D%0APreferred%20date%20and%20time%3A%0D%0A" style="align-self: flex-start; margin-top: auto; font-size: 17px; font-weight: 700; color: #17543C; text-decoration: underline;">Book a pick-up slot</a>
 </div>
 <div class="cardb card pop d2" style="flex: 1 1 320px; background: #FFFFFF;">
 <h3 class="h3" data-i18n="604e5aac" style="color: #0E3B2B;">Outside Open Days</h3>
@@ -302,7 +342,7 @@ a:focus-visible { outline: 3px solid #2E8B57; outline-offset: 3px; }
 <p class="txt" data-i18n="5043fbd9" style="color: #9BE08C; font-weight: 700;">Volunteers are not always available.</p>
 </div>
 </div>
-<a aria-label="Go to the form" class="next next-dark" data-i18n-aria="f3cc481e" href="#register"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
+<a aria-label="Go to the form" class="next next-dark" href="#register"><svg aria-hidden="true" class="cue" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="26"><path d="M6 9l6 6 6-6"></path></svg></a>
 </section>
 <!-- 7. Register (form just above the footer) -->
 <section class="sec" id="register" style="background: #DCEADB;">
@@ -310,12 +350,12 @@ a:focus-visible { outline: 3px solid #2E8B57; outline-offset: 3px; }
 <h2 class="h2" data-i18n="102d423f" style="color: #0E3B2B;">Register for storage</h2>
 <div class="bar rule" style="background: #2E8B57;"></div>
 <p class="lead" data-i18n="57228a0e" style="max-width: 560px; color: #3F4B45;">Fill in this form to store your stuff.</p>
-<div style="width: 100%; display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch; text-align: left;">
+<div style="width: 100%; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; text-align: left;">
 <div class="pop d2" style="flex: 2 1 520px; min-width: 0; box-sizing: border-box; border-radius: 28px; overflow: hidden; background: #FFFFFF; border: 1px solid #B9D3BC;"><iframe class="gform" data-i18n-title="frm-store" loading="lazy" src="https://docs.google.com/forms/d/e/1FAIpQLSd8L9rfWwZzJ1FG78e3KhtokeuB_8nmMI01JP4G4hkQTIwS5A/viewform?embedded=true" style="--gh: 2300px; --gh-m: 2500px;" title="Storage form">Loading…</iframe></div>
-<div class="cardb card pop d3" style="flex: 1 1 300px; background: #17543C; color: #F5F1E6; justify-content: center;">
+<div class="cardb card pop d3 form-aside" style="flex: 1 1 300px; align-self: flex-start; background: #17543C; color: #F5F1E6;">
 <h3 class="h3" data-i18n="a2410f93">Book your Open Day slot</h3>
 <p class="txt" data-i18n="9a77ccae" style="color: rgba(245, 241, 230, 0.88);">Choose a time to come and store your items in building G.</p>
-<a class="btn btn-solid" data-i18n="1aa33622" data-od-link="drop" href="mailto:association.meublation@hec.edu?subject=Open%20Day%20slot%20%28storage%29&amp;body=Hello%20Meublation%20team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20slot%20during%20the%20Open%20Days%20to%20store%20my%20items.%0D%0A%0D%0AName%3A%0D%0APreferred%20date%20and%20time%3A%0D%0ANumber%20of%20items%3A%0D%0A" style="align-self: flex-start; margin-top: 6px; display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #9BE08C; color: #0E3B2B; font-size: 17px; font-weight: 700;">Book a slot</a>
+<a class="btn btn-solid" data-href-fr="mailto:association.meublation@hec.edu?subject=Cr%C3%A9neau%20Open%20Day%20%28stockage%29&amp;body=Bonjour%20l%27%C3%A9quipe%20Meublation%2C%0D%0A%0D%0AJe%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20pendant%20les%20Open%20Days%20pour%20stocker%20mes%20affaires.%0D%0A%0D%0ANom%20%3A%0D%0ADate%20et%20heure%20souhait%C3%A9es%20%3A%0D%0ANombre%20d%27objets%20%3A%0D%0A" data-i18n="1aa33622" data-od-link="drop" href="mailto:association.meublation@hec.edu?subject=Open%20Day%20slot%20%28storage%29&amp;body=Hello%20Meublation%20team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20slot%20during%20the%20Open%20Days%20to%20store%20my%20items.%0D%0A%0D%0AName%3A%0D%0APreferred%20date%20and%20time%3A%0D%0ANumber%20of%20items%3A%0D%0A" style="align-self: flex-start; margin-top: 6px; display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #9BE08C; color: #0E3B2B; font-size: 17px; font-weight: 700;">Book a slot</a>
 <p class="txt" data-i18n="a5aaa58d" style="font-size: 15px; color: rgba(245, 241, 230, 0.8);">Or write to <a href="mailto:association.meublation@hec.edu" style="text-decoration: underline;">association.meublation@hec.edu</a></p>
 </div>
 <p class="txt" data-i18n="frm-fallback" style="flex: 0 0 100%; margin: 0; text-align: center; color: #3F4B45;">If the form does not load, <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8L9rfWwZzJ1FG78e3KhtokeuB_8nmMI01JP4G4hkQTIwS5A/viewform" rel="noopener" style="font-weight: 700; color: #17543C; text-decoration: underline;" target="_blank">open it in a new tab</a>.</p></div>
@@ -392,9 +432,23 @@ window.MEUBLATION_FR = {
   "89fee2f1": "4 € par mois chacun",
   "46135870": "Nombre de mois",
   "eb54dc52": "durée envisagée",
+  "7c35a6b4": "Supplément location de contenants",
+  "d3a9cc28": "1 € par caisse et par mois, max. 10 € par caisse",
   "0f62137a": "Prix estimé",
   "35ec6cf4": "<span data-calc=\"monthly\">2 €<\/span> par mois pendant <span data-calc=\"monthsLabel\">3 mois<\/span>",
+  "d9335ac6": "+ <span data-calc=\"crateCost\">0 €<\/span> de location de caisses",
   "d45402e3": "Stocker mes affaires à ce prix-là<svg aria-hidden=\"true\" fill=\"none\" height=\"20\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"flex: none;\" viewbox=\"0 0 24 24\" width=\"20\"><path d=\"M6 9l6 6 6-6\"><\/path><\/svg>",
+  "8f11bdf9": "Caisses",
+  "912ba735": "Besoin de caisses de stockage ?",
+  "b74b69de": "Si vous avez besoin de caisses pour stocker vos affaires (60 × 40 × 40 cm), nous vous en louons également !",
+  "5d1e3921": "par caisse et par mois",
+  "86e6ff92": "Dans la limite de 10 € par caisse !",
+  "e21860bf": "Comment ça marche ?",
+  "4a62a449": "Vous nous contactez par mail.",
+  "c38a0bde": "Nous vous disons quand venir chercher vos caisses.",
+  "e71ce2b7": "Vous déposez vos affaires à Meublation.",
+  "0991899a": "Quand vous récupérez vos affaires, vous avez 7 jours pour nous rendre les caisses !",
+  "5a37e236": "Nous écrire pour des caisses",
   "1dd6a17c": "Comment ça marche",
   "38a3ab1a": "Stocker vos affaires en cinq étapes",
   "d672995a": "S'inscrire",
@@ -439,8 +493,9 @@ window.MEUBLATION_FR = {
   "6d40bece": "Langue",
   "af4428ac": "Rubriques",
   "0d504279": "Faire défiler vers le bas",
-  "affb8916": "Accéder au formulaire",
-  "f3cc481e": "Instagram",
+  "affb8916": "Instagram",
+  "94087c1b": "Retirer une caisse",
+  "70cebb1c": "Ajouter une caisse",
   "frm-store": "Formulaire de stockage (en anglais)",
   "frm-fallback": "Si le formulaire ne s'affiche pas, <a>ouvrez-le dans un nouvel onglet<\/a>.",
   "title-store": "Meublation – Stockage",
