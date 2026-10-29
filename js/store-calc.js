@@ -21,7 +21,8 @@
   }
 
   function euro(n) {
-    return lang() === 'fr' ? n.toLocaleString('fr-FR') + ' €' : '€' + n.toLocaleString('en-GB');
+    var o = n % 1 === 0 ? {} : { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+    return lang() === 'fr' ? n.toLocaleString('fr-FR', o) + ' €' : '€' + n.toLocaleString('en-GB', o);
   }
 
   function months(n) {
