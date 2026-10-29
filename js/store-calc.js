@@ -1,7 +1,7 @@
 /* Meublation – storage price calculator (Store page).
  *
  * Price = (small items x 2 EUR + large items x 4 EUR) per month, multiplied by the number of months.
- * Crate rental (optional): 1 EUR per crate per month, capped at 10 EUR per crate (so 10 months maximum are charged).
+ * Crate rental (optional): 0.50 EUR per crate per month, capped at 5 EUR per crate (so 10 months maximum are charged).
  * Inputs : [data-calc-input="small|large|months"]
  * Crates: buttons [data-crate="dec|inc"], counter [data-calc="crates"], line [data-crate-line] (shown when crates > 0)
  * Results: [data-calc="total|monthly|monthsLabel|crateCost"] (the texts are rebuilt in the current language).
@@ -9,7 +9,7 @@
  */
 (function () {
   'use strict';
-  var SMALL = 2, LARGE = 4, CRATE = 1, CRATE_MAX_MONTHS = 10;
+  var SMALL = 2, LARGE = 4, CRATE = 0.5, CRATE_MAX_MONTHS = 10;
   var crates = 0;
 
   function lang() { return document.documentElement.lang === 'fr' ? 'fr' : 'en'; }
