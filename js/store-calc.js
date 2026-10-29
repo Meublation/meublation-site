@@ -35,7 +35,7 @@
     var boxCost = boxes * CRATE * Math.min(m, CRATE_MAX_MONTHS);
     var out = { total: euro(monthly * m + boxCost), monthly: euro(monthly), monthsLabel: months(m),
                 boxCost: euro(boxCost), boxes: String(boxes) };
-    document.querySelectorAll('[data-box-line]').forEach(function (el) { el.style.display = boxes > 0 ? 'block' : 'none'; });
+    document.querySelectorAll('[data-box-line],[data-crate-line]').forEach(function (el) { el.style.display = boxes > 0 ? 'block' : 'none'; });
     // Re-read the elements each time: a language change rewrites the text around them.
     document.querySelectorAll('[data-calc]').forEach(function (el) {
       var k = el.getAttribute('data-calc');
@@ -52,9 +52,9 @@
     });
   });
 
-  document.querySelectorAll('[data-box]').forEach(function (b) {
+  document.querySelectorAll('[data-box],[data-crate]').forEach(function (b) {
     b.addEventListener('click', function () {
-      boxes = Math.max(0, Math.min(99, boxes + (b.getAttribute('data-box') === 'inc' ? 1 : -1)));
+      boxes = Math.max(0, Math.min(99, boxes + ((b.getAttribute('data-box') || b.getAttribute('data-crate')) === 'inc' ? 1 : -1)));
       update();
     });
   });
